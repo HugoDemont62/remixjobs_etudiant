@@ -1,0 +1,280 @@
+// colors
+$bleu: #285ABE
+$rose: #E60078
+$jaune: #FAC80A
+$vert: #1E965A
+$orange: #FA5F14
+$gris: #AAB4C3
+$noirFiltre: linear-gradient(90deg, rgba(12,12,12,1) 0%, rgba(12,12,12,0) 30%)
+$noir: #555
+$blanc: #F6F6F6
+
+// fonts
+$reg: 'Montserrat', sans-serif
+$logo: 'Rancho', cursive
+
+
+// taille police
+
+$p: 1rem
+$titre: 3rem
+//Code HTML
+*
+  box-sizing: border-box
+
+html
+  font-size: 62.5%
+body
+  background-color: rgb(230, 240, 250)
+  font-family: $reg
+
+a
+  text-decoration: none
+i
+  vertical-align: middle
+  font-size: 2rem
+
+.container
+  max-width: 1100px
+  margin: 0 auto
+
+.line-effect
+  position: relative
+  margin: 0
+  padding: 1em 0
+
+
+.line-effect::after
+  position: absolute
+  bottom: 0
+  left: 0
+  height: 2px
+  width: 100%
+  content: ""
+  background-image: $noirFiltre
+
+
+/* header (4 points)*/
+
+header
+  position: relative
+  background-image: url("../images/bg.jpg")
+  background-size: cover
+  height: 500px
+  margin-bottom: 3rem
+  z-index: 1
+  &::before
+    content: ""
+    position: absolute
+    inset: 0
+    z-index: -1
+    background: rgba(0, 0, 0, 0.5)
+  .pre-header
+    background: $bleu
+    padding-block: 1rem
+    .container
+      display: flex
+      justify-content: space-between
+      padding: 1rem
+      & .sponsor
+        font-family: $reg
+        color: $blanc
+      & #logo
+        font-family: $logo
+        color: $blanc
+        font-size: 1.8rem
+  .banner
+    position: relative
+    padding: 5rem
+    & span
+      font-size: 3rem
+      font-family: $reg
+    & .cta
+      position: absolute
+      width: 40%
+      right: 0
+      display: flex
+      flex-direction: column
+      & .description
+        font-size: 2rem
+        font-weight: 500
+        color: $blanc
+    & .action
+      display: flex
+      align-items: center
+      flex-direction: row
+      margin-block: 3rem
+      & span
+        display: flex
+        align-items: center
+        justify-content: center
+        padding: 1rem
+        color: black
+        font-size: 2rem
+        height: 40px
+        text-transform: uppercase
+        background: $blanc
+
+.action i
+  background-color: $jaune
+  color: white
+  line-height: 4rem
+  width: 4rem
+  display: inline-block
+  text-align: center
+
+
+/*  GRID  (12 points) */
+/* quelques informations :
+
+//- La taille de la première ligne (1/3 de la taille des autres lignes)
+//- Couleur du texte :  #555 (noir)  #285ABE (bleu) #AAB4C3 (gris) #1E965A (vert)
+//- Les couleurs de l'arrière plan : #285ABE (bleu) #E60078 (rose) #FAC80A (jaune)
+//#AAB4C3 (gris) #1E965A (vert) #FA5F14 (orange)
+//- Voici un lien intéressant qui explique comment dans un grid-template-areas laisser des cellules vides :
+//  https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Grid_Template_Areas#leaving_a_grid_cell_empty
+//*/
+/* TODO */
+.main
+  margin-top: -150px
+  display: grid
+  color : $noir
+  grid-template-rows: repeat(5,1fr)
+  grid-template-columns: repeat(3,1fr)
+  grid-template-areas: "bx1 bx2 bx3" "bx4 bx5 bx6" "bx7 bx8 bx9" "bx7 bx10 bx10" "bx11 bx12 bx13"
+  & .box
+    position: relative
+    background: $blanc
+    padding: 2rem
+    z-index: 20
+    & h3
+      display: flex
+      flex-direction: column
+      text-transform: uppercase
+    & strong
+      font-size: 1.5rem
+    & p
+      color: $noir
+      line-height: 2rem
+      font-size: 1.1rem
+    & img
+      position: absolute
+      height: 100%
+      top: 0
+  & h3
+    color: $noir
+    font-family: $reg
+    font-size: $titre
+
+#bx1
+  margin-top: -33%
+  grid-area: bx1
+  & a
+    position: absolute
+    bottom: 0
+    right: 0
+    padding: 2rem
+    color: $bleu
+    font-size: 1.4rem
+    font-weight: 700
+  & ul
+    list-style: none
+    padding: 0
+    & h4
+      font-size: 1.3rem
+      font-weight: 500
+    & .info
+      & .location
+        color: $bleu
+        &:after
+          content: " |"
+
+
+#bx2
+  grid-area: bx2
+  height: 400px
+  background: $bleu
+  color: $blanc
+  display: flex
+  justify-content: center
+  align-items: center
+  flex-direction: column
+  h3
+    color: $blanc
+    font-size: 7rem
+  p
+    color: $blanc
+    font-size: 2rem
+#bx3
+  grid-area: bx3
+#bx4
+  padding: 0
+  grid-area: bx4
+  & img
+    width: 100%
+    object-fit: cover
+#bx5
+  grid-area: bx5
+#bx6
+  grid-area: bx6
+  background: $rose
+  color: $blanc
+  & h3
+    color: $blanc
+  & p
+    color: $blanc
+#bx7
+  grid-area: bx7
+#bx8
+  grid-area: bx8
+  background: $jaune
+  color: $blanc
+  & h3
+    color: $blanc
+  & p
+    color: $blanc
+#bx9
+  grid-area: bx9
+#bx10
+  grid-area: bx10
+  background: $vert
+  color: $blanc
+  h3
+    color: $blanc
+#bx11
+  grid-area: bx11
+  background: $orange
+  color: $blanc
+  & h3
+    color: $blanc
+  & p
+    color: $blanc
+#bx12
+  grid-area: bx12
+#bx13
+  grid-area: bx13
+  background: $gris
+  & .ad
+    background: $blanc
+  h3
+    color: $blanc
+
+
+
+
+
+
+/* footer (4 points)*/
+/* quelques informations
+//- Les couleurs de l'arrière plan : #323746 (gris foncé)
+//- Le copyright : noir en jouant sur l'opacité (rgba)
+
+/* TODO */
+footer
+  margin-top: -40px
+  background-color: rgb(50,55,70)
+  color: white
+
+.offers i
+  font-size: 3rem
+  color: #FAC80A

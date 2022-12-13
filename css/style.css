@@ -126,7 +126,7 @@ header .banner .action span {
 /* quelques informations : */
 /* TODO */
 .main {
-  margin-top: -150px;
+  margin-top: -50px;
   display: grid;
   color: #555;
   grid-template-rows: repeat(5, 1fr);
